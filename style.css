@@ -1,0 +1,82 @@
+body {
+  font-family: Cabin;
+  background-color: #c7f7ff;
+  text-align: center;
+}
+div#title, div#description_container {
+  max-width: 540px;
+  text-align: left;
+  margin: auto;
+  padding: 4px;
+}
+
+div#title {
+  font-size: 48px;
+  padding-top: 0;
+  height: 1em;
+  white-space: nowrap;
+}
+div#description_container {
+  font-size: 18px;
+  padding-bottom: 2em;
+  height: 5em;
+}
+
+div#description {
+  width: 70%;
+  display: inline-block;
+}
+
+div#points_container {
+  color: #3af;
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: top;
+}
+span#points {
+  font-size: 18px;
+}
+
+button:focus {
+  outline: 0;
+}
+button#points_button {
+  border: 1px solid #33f;
+  border-radius: 4px;
+  background: #bdf;
+  font-size: 24px;
+  padding: 8px;
+  transition: padding 0.05s, margin 0.05s;
+}
+button#points_button:hover {
+  margin: 2px;
+  padding: 6px;
+  cursor: hand;
+}
+button#notes_button {
+  width: 540px;
+  color: #79a;
+  height: 4px;
+  border: 1px inset #578;
+}
+
+div#notes_container {
+  width: 540px;
+  margin: auto;
+}
+textarea#notes_input {
+  width: 540px;
+  height: 0;
+  resize: vertical;
+  transition: height 0.05s;
+}
+textarea#notes_input.unhide {
+  height: 16em;
+}
+
+canvas {
+  border: 1px solid #34d;
+}
+canvas:hover {
+  cursor: hand;
+}

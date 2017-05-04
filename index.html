@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <script src="NodeClass.js"></script>
+    <script src="ClickHandler.js"></script>
+    <script src="Main.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cabin">
+  </head>
+  <body onload="init()">
+    <div id="title">Term</div>
+    <div id="description_container">
+      <div id="description">Description</div>
+      <div id="points_container">
+        Points: <span id="points">0</span>
+        <br>
+        <button id="points_button" onclick="getPoints()">Got it!</button>
+      </div>
+    </div>
+    <canvas id="canvas"></canvas>
+    <div id="notes_container">
+      <textarea id="notes_input" class="hidden" onblur="importNotes()">
+      </textarea>
+      <button id="notes_button" onclick="notesButtonClicked()">
+    </div>
+  </body>
+</html>
