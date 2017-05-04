@@ -5,6 +5,7 @@ function rng(min, max) { // min..max
 }
 
 var nodes = [];
+var checkedNodes = {};
 var nodeAngles = {};
 var neighbors = {}; // neighbors[node] = array of neighbor ids
 var neighborAngle = {}; // angle of first neighbor
@@ -39,10 +40,12 @@ class Node {
     this.width = STYLE.node_width + (STYLE.node_width_per_char * term.length);
     this.height = STYLE.node_height;
     this.definition = definition;
-    this.checked = false;
+  }
+  isChecked() {
+    return checkedNodes[this.id];
   }
   drawNode(center) {
-    if (this.checked) {
+    if (this.isChecked()) {
       x.fillStyle = STYLE.checked_node_color;
       x.strokeStyle = STYLE.checked_node_border_color;
       x.lineWidth = 2;

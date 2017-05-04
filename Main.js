@@ -26,7 +26,7 @@ function getPoints() {
   //   nodes[currentNode].width,
   //   nodes[currentNode].height);
 
-  nodes[currentNode].checked = true;
+  checkedNodes[currentNode] = true;
   redrawButton();
 
   pointsSpan.innerHTML = +(pointsSpan.innerHTML) + 10;
@@ -34,7 +34,7 @@ function getPoints() {
 }
 
 function redrawButton() {
-  if (nodes[currentNode].checked) {
+  if (nodes[currentNode].isChecked()) {
     button.style.display = "none";
   } else {
     button.style.display = "block";
