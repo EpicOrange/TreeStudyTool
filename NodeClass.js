@@ -123,6 +123,7 @@ function importNodes(string) {
 function importNotes() {
   nodes = [];
   var notes = document.getElementById("notes_input");
+  window.localStorage.setItem("notes", notes.value);
   importNodes(notes.value);
   redraw();
 }

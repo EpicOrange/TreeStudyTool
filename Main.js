@@ -83,6 +83,7 @@ function init() {
   pointsSpan = document.getElementById("points");
 
   var notes = document.getElementById("notes_input");
+  notes.value = window.localStorage.getItem("notes") || notes.value;
   importNodes(notes.value);
   redraw();
   handleClicks(c);
