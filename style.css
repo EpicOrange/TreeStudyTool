@@ -61,6 +61,21 @@ button#notes_button {
   border: 1px inset #578;
 }
 
+input[type="checkbox"]#autoScoreCheckbox {
+  visibility: hidden;
+}
+input[type="checkbox"]#autoScoreCheckbox::before {
+  content: "Auto-score";
+  white-space: nowrap;
+  visibility: visible;
+  color: #79a;
+  font-size: 8px;
+  transition: color 0.05s ease;
+}
+input[type="checkbox"]#autoScoreCheckbox:checked::before {
+  color: #ace;
+}
+
 div#notes_container {
   width: 540px;
   margin: auto;

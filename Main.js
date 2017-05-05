@@ -26,11 +26,13 @@ function getPoints() {
   //   nodes[currentNode].width,
   //   nodes[currentNode].height);
 
-  checkedNodes[currentNode] = true;
-  redrawButton();
+  if (!checkedNodes[currentNode]) {
+    checkedNodes[currentNode] = true;
+    redrawButton();
 
-  pointsSpan.innerHTML = +(pointsSpan.innerHTML) + 10;
-  nodes[currentNode].drawNode(center);
+    pointsSpan.innerHTML = +(pointsSpan.innerHTML) + 10;
+    nodes[currentNode].drawNode(center);
+  }
 }
 
 function redrawButton() {

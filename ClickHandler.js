@@ -23,6 +23,18 @@ function isInside(pos, rect){
       && (pos.y > rect.y - rect.halfheight)
       && (pos.y < rect.y + rect.halfheight);
 }
+function changeNode(newId) {
+  if (newId != currentNode) {
+    lastNode = currentNode;
+    currentNode = newId;
+    lastNodeAngle = nodeAngles[currentNode] + Math.PI;
+    const auto_score = document.getElementById("autoScoreCheckbox").checked;
+    if (auto_score) {
+      getPoints();
+    }
+    redraw();
+  }
+}
 function handleClicks(canvas) {
   c.addEventListener('mousedown', function(evt) { // stop selecting text on page
     evt.preventDefault();
@@ -31,13 +43,7 @@ function handleClicks(canvas) {
       var pos = getMousePos(c, evt);
       for (let i = 0; i < clickRects.length; i++) {
         if (isInside(pos, clickRects[i])) {
-          if (clickRects[i].id == currentNode) {
-            break;
-          }
-          lastNode = currentNode;
-          currentNode = clickRects[i].id;
-          lastNodeAngle = nodeAngles[currentNode] + Math.PI;
-          redraw();
+          changeNode(clickRects[i].id);
           break;
         }
       }
