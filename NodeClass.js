@@ -4,13 +4,16 @@ function rng(min, max) { // min..max
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-var nodes = [];
-var checkedNodes = {};
-var nodeAngles = {};
-var neighbors = {}; // neighbors[node] = array of neighbor ids
-var neighborAngle = {}; // angle of first neighbor
-var existing_nodes = {};
+// changes for every node
 var lastNodeAngle = tau * (15/360);
+var nodeAngles = {}; // nodeAngles[id] = angle of neighbor id
+
+// persistent
+var nodes = []; // nodes[id] = Node
+var neighbors = {}; // neighbors[node id] = array of neighbor ids for node id
+var existing_nodes = {};
+var checkedNodes = {};
+var neighborAngle = {}; // angle of first neighbor
 
 function generateNeighbors(id) {
   var neighborIds = (currentNode == lastNode) ? [] : [lastNode];
@@ -31,6 +34,17 @@ function generateNeighbors(id) {
   neighbors[id] = neighborIds;
   neighborAngle[id] = lastNodeAngle;
   return neighborIds;
+}
+
+function deleteNonexistentNodes() {
+  for (let key in existing_nodes) {
+    if (key >= nodes.length) {
+      delete neighbors[key];
+      delete existing_nodes[key];
+      delete checkedNodes[key];
+      delete neighborAngle[key];
+    }
+  }
 }
 
 class Node {
