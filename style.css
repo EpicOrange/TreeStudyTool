@@ -2,6 +2,7 @@ body {
   font-family: Cabin;
   background-color: #c7f7ff;
   text-align: center;
+  margin-bottom: 30em;
 }
 div#title, div#description_container {
   max-width: 540px;
