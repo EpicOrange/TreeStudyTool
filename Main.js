@@ -44,16 +44,19 @@ function redrawButton() {
 function validateCurrentNode() {
   if (nodes.length == 0) {
     currentNode = lastNode = -1;
-    return;
+    return false;
   } else if (currentNode == -1 || currentNode >= nodes.length) {
     currentNode = lastNode = rng(0, nodes.length - 1);
     existing_nodes[currentNode] = true;
     deleteNonexistentNodes();
   }
+  return true;
 }
 
 function redraw() {
-  validateCurrentNode();
+  if (!validateCurrentNode()) {
+    return;
+  }
   clearClickRects();
   x.clearRect(0, 0, c.width, c.height);
 
