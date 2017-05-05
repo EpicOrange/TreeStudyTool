@@ -17,7 +17,7 @@ var neighborAngle = {}; // angle of first neighbor
 
 function generateNeighbors(id) {
   var neighborIds = (currentNode == lastNode) ? [] : [lastNode];
-  var num = rng(STYLE.neighbors_min, STYLE.neighbors_max);
+  var num = rng(STYLE.neighbors_min(), STYLE.neighbors_max());
   var giveup = 1000;
   for (let i = 0; neighborIds.length < num && giveup-- > 0; i++) {
     var newId = rng(0, nodes.length - 1);

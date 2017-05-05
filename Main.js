@@ -10,8 +10,8 @@ var STYLE = {
   node_height: 48,
   neighbor_radius_x_percent: .60,
   neighbor_radius_y_percent: .75,
-  neighbors_min: 6,
-  neighbors_max: 9,
+  neighbors_min: () => (Math.max(Math.round(Math.log(nodes.length)), 3)),
+  neighbors_max: () => (Math.min(Math.round(Math.log(nodes.length)) + 2, 9)),
   checked_node_color: "#0a2",
   checked_node_border_color: "#070",
 }
